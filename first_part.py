@@ -12,3 +12,15 @@ def card_family_limit_analisys(db):
     print("The average of credit limits of each card family is:")
     print(group_average.mean())
 
+
+def highest_value_fraud_id(db):
+    df_trans_value = pd.DataFrame(db.select_table("transactions"))[[0, 3]]
+    df_frauds = pd.DataFrame(db.select_table("frauds"))
+
+    df_frauds_value = pd.merge(df_trans_value, df_frauds, how = 'inner', on = 0)
+    df_frauds_value.columns = ['id', 'value', 'fraud flag']
+
+    max_value = df_frauds_value['value'].max()
+
+    return df_frauds_value[df_frauds_value['value'] == max_value]['id']
+
