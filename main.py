@@ -7,8 +7,11 @@ def main():
                     "read_only_user",
                     "banking123",
                     5432)
+    #Resolucao do primeiro exercicio
     print("The average age of the customers is: {} \n".format(customers_average_age(db)))
 
+    #Resolucao do segundo exercicio
+    card_family_limit_analisys(db);
 
 if __name__ == "__main__":
     main()
