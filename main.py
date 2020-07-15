@@ -14,6 +14,7 @@ def main():
     card_family_limit_analisys(db);
 
     #Resolucao do terceiro exercicio
+    print("\n")
     print("The highest value fraud id is:\n{}".format(highest_value_fraud_id(db)))
 
 if __name__ == "__main__":
