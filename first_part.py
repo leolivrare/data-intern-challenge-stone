@@ -9,14 +9,15 @@ def card_family_limit_analisys(db):
     df_cards = pd.DataFrame(db.select_table("cards"))
     group = df_cards[[1, 2]].groupby(1)
 
-    print("The average of credit limits of each card family is:")
-    print(group.mean())
+    group_average = group.mean()
+    group_max = group.max()
+    group_min = group.min()
+    group_average.columns = ['Average']
+    group_max.columns = ['Max']
+    group_min.columns = ['Min']
+    mean_max_min = group_average.join(group_max).join(group_min)
 
-    print("The maximum credit limit of each card family is:")
-    print(group.max())
-
-    print("The minimum credit limit of each card family is:")
-    print(group.min())
+    print(mean_max_min)
 
 
 def highest_value_fraud_id(db):
