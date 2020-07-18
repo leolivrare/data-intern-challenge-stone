@@ -1,5 +1,6 @@
 from connection import *
 from first_part import *
+from second_part import *
 
 def main():
     db = Connection("db-stone.cjepwwjnksng.us-east-1.rds.amazonaws.com",
@@ -18,6 +19,9 @@ def main():
     print("\n")
     print("The highest value fraud id is:\n{}".format(highest_value_fraud_id(db)))
     print("\nThe top five most value fraud is:\n{}".format(most_expensive_frauds(db)))
+
+    #Segunda parte
+    analyse_fraudulent_transactions(db)
 
 if __name__ == "__main__":
     main()
