@@ -7,18 +7,11 @@ def customers_average_age(db):
 
 def card_family_limit_analisys(db):
     df_cards = pd.DataFrame(db.select_table("cards"))
-    group = df_cards[[1, 2]].groupby(1)
+    df_cards.columns = ['Card Number', 'Card Family', 'Card Limit', 'Customer ID']
+    group = df_cards[['Card Family', 'Card Limit']].groupby('Card Family')
 
-    group_average = group.mean()
-    group_max = group.max()
-    group_min = group.min()
-    group_average.columns = ['Average']
-    group_max.columns = ['Max']
-    group_min.columns = ['Min']
-    mean_max_min = group_average.join(group_max).join(group_min)
-
-    print(mean_max_min)
-
+    group_description = group.describe()['Card Limit'][['mean', 'std', 'min', 'max']]
+    return group_description
 
 def highest_value_fraud_id(db):
     df_trans_value = pd.DataFrame(db.select_table("transactions"))[[0, 3]]
@@ -28,6 +21,15 @@ def highest_value_fraud_id(db):
     df_frauds_value.columns = ['id', 'value', 'fraud flag']
 
     max_value = df_frauds_value['value'].max()
-
     return df_frauds_value[df_frauds_value['value'] == max_value]['id']
 
+def most_value_frauds(db):
+    df_trans = pd.DataFrame(db.select_table('transactions'))
+    df_frauds = pd.DataFrame(db.select_table('frauds'))
+
+    df_frauds_trans = pd.merge(df_trans, df_frauds, how = 'inner', on = 0)
+    df_frauds_trans.columns = ['ID', 'Card number', 'Date', 'Value', 'Segment', 'Fraud Flag']
+
+    df_frauds_trans.sort_values(by = 'Value', ascending=False, inplace=True)
+    
+    return df_frauds_trans.head()
