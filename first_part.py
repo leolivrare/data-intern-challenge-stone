@@ -23,7 +23,7 @@ def highest_value_fraud_id(db):
     max_value = df_frauds_value['value'].max()
     return df_frauds_value[df_frauds_value['value'] == max_value]['id']
 
-def most_value_frauds(db):
+def most_expensive_frauds(db):
     df_trans = pd.DataFrame(db.select_table('transactions'))
     df_frauds = pd.DataFrame(db.select_table('frauds'))
 
