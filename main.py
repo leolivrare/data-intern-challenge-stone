@@ -21,7 +21,7 @@ def main():
     print("\nThe top five most value fraud is:\n{}".format(most_expensive_frauds(db)))
 
     #Segunda parte
-    analyse_fraudulent_transactions(db)
-
+#    analyse_fraudulent_transactions(db)
+    db.close()
 if __name__ == "__main__":
     main()

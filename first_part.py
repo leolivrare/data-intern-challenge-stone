@@ -11,6 +11,7 @@ def card_family_limit_analisys(db):
     group = df_cards[['Card Family', 'Card Limit']].groupby('Card Family')
 
     group_description = group.describe()['Card Limit'][['mean', 'std', 'min', 'max']]
+    group_description.columns = ['Mean (R$)', 'Std (R$)', 'Minimum Value (R$)', 'Maximum Value (R$)']
     return group_description
 
 def highest_value_fraud_id(db):
@@ -28,7 +29,7 @@ def most_expensive_frauds(db):
     df_frauds = pd.DataFrame(db.select_table('frauds'))
 
     df_frauds_trans = pd.merge(df_trans, df_frauds, how = 'inner', on = 0)
-    df_frauds_trans.columns = ['ID', 'Card number', 'Date', 'Value', 'Segment', 'Fraud Flag']
+    df_frauds_trans.columns = ['Fraud ID', 'Card Number', 'Date', 'Value', 'Segment', 'Fraud Flag']
 
     df_frauds_trans.sort_values(by = 'Value', ascending=False, inplace=True)
     
