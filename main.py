@@ -17,7 +17,6 @@ def main():
     #Resolucao do terceiro exercicio
     print("\n")
     print("The highest value fraud id is:\n{}".format(highest_value_fraud_id(db)))
-    print("\nThe top five most value fraud is:\n{}".format(most_value_frauds(db)))
 
 if __name__ == "__main__":
     main()
