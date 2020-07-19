@@ -13,7 +13,9 @@ def main():
     print("The average age of the customers is: {} \n".format(customers_average_age(db)))
 
     #Resolucao do segundo exercicio
+    df = card_family_limit_analisys(db)
     print(card_family_limit_analisys(db))
+    df.to_csv(r'card_family_limit_analisys.csv')
 
     #Resolucao do terceiro exercicio
     print("\n")
@@ -21,7 +23,7 @@ def main():
     print("\nThe top five most value fraud is:\n{}".format(most_expensive_frauds(db)))
 
     #Segunda parte
-#    analyse_fraudulent_transactions(db)
+    analyse_fraudulent_transactions(db)
     db.close()
 if __name__ == "__main__":
     main()

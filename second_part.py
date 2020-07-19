@@ -4,8 +4,12 @@ from connection import *
 def analyse_fraudulent_transactions(db):
     df_merge = get_frauds_transactions(db)
     analyse_value(df_merge)
-    print("\n{}".format(get_fraud_rate_segments(df_merge)))
-    print("\n{}".format(get_fraud_rate_month(df_merge)))
+    df_fraud_rate_seg = get_fraud_rate_segments(df_merge)
+    df_fraud_rate_month = get_fraud_rate_month(df_merge)
+    df_fraud_rate_seg.to_csv(r'fraud_rate_seg.csv')
+    df_fraud_rate_month.to_csv(r'fraud_rate_month.csv')
+    print("\n{}".format(df_fraud_rate_seg))
+    print("\n{}".format(df_fraud_rate_month))
 
 def get_frauds_transactions(db):
     df_trans = pd.DataFrame(db.select_table("transactions"))
