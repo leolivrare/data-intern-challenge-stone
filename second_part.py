@@ -6,6 +6,7 @@ def analyse_fraudulent_transactions(db):
     analyse_value(df_merge)
     df_fraud_rate_seg = get_fraud_rate_segments(df_merge)
     df_fraud_rate_month = get_fraud_rate_month(df_merge)
+    
     df_fraud_rate_seg.to_csv(r'fraud_rate_seg.csv')
     df_fraud_rate_month.to_csv(r'fraud_rate_month.csv')
     print("\n{}".format(df_fraud_rate_seg))
@@ -22,13 +23,46 @@ def get_frauds_transactions(db):
     return df_merge
 
 def analyse_value(df_merge):
+    analyse_mean(df_merge)
+    analyse_std(df_merge)
+    analyse_max_min(df_merge)
+    analyse_median(df_merge)
+
+def analyse_mean(df_merge):
     mean_trans = df_merge[df_merge['Fraud_flag']==False]['Value'].mean()
     mean_frauds = df_merge[df_merge['Fraud_flag']==True]['Value'].mean()
     fraud_value = (1 - (mean_trans/mean_frauds))*100
     
-    print("\nMedia das transações sem fraude: {}".format(mean_trans))
+    print("\nValor médio das transações normais: {}".format(mean_trans))
     print("Valor médio das fraudes: {}".format(mean_frauds))
-    print("As fraudes possuem valor {:.2f}% mais alto que as transações normais".format(fraud_value))
+    print("As fraudes possuem valor {:.2f}% mais alto do que as transações normais".format(fraud_value))
+
+def analyse_std(df_merge):
+    std_trans = df_merge[df_merge['Fraud_flag']==False]['Value'].std()
+    std_frauds = df_merge[df_merge['Fraud_flag']==True]['Value'].std()
+
+    print("\nO desvio padrão das transações é {}".format(std_trans))
+    print("O desvio padrão das fraudes é {}".format(std_frauds))
+
+def analyse_median(df_merge):
+    median_trans = df_merge[df_merge['Fraud_flag']==False]['Value'].median()
+    median_frauds = df_merge[df_merge['Fraud_flag']==True]['Value'].median()
+    fraud_value = (1 - (median_trans/median_frauds))*100
+
+    print("\nA mediana das transações não fraudulentas é: {}".format(median_trans))
+    print("A mediana das fraudes é {}".format(median_frauds))
+    print("A mediana das fraudes é {:.2f}% mais alto que as transações normais".format(fraud_value))
+
+def analyse_max_min(df_merge):
+    min_trans = df_merge[df_merge['Fraud_flag']==False]['Value'].min()
+    min_frauds = df_merge[df_merge['Fraud_flag']==True]['Value'].min()
+    max_trans = df_merge[df_merge['Fraud_flag']==False]['Value'].max()
+    max_frauds = df_merge[df_merge['Fraud_flag']==True]['Value'].max()
+    print("\nValor minimo das transações não fraudulentas: R${}".format(min_trans))
+    print("Valor minimo das fraudes: R${}".format(min_frauds))
+    print("Valor maximo das transações não fraudulentas: R${}".format(max_trans))
+    print("Valor maximo das fraudes: R${}".format(max_frauds))
+
 
 def get_fraud_rate_segments(df_merge):
     group_frauds_seg = df_merge[df_merge['Fraud_flag']==True].groupby('Segment')
