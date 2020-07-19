@@ -15,7 +15,7 @@ def main():
     #Resolucao do segundo exercicio
     df = card_family_limit_analisys(db)
     print(card_family_limit_analisys(db))
-    df.to_csv(r'card_family_limit_analisys.csv')
+    df.to_csv(r'data/card_family_limit_analisys.csv')
 
     #Resolucao do terceiro exercicio
     print("\n")

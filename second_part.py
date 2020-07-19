@@ -7,8 +7,8 @@ def analyse_fraudulent_transactions(db):
     df_fraud_rate_seg = get_fraud_rate_segments(df_merge)
     df_fraud_rate_month = get_fraud_rate_month(df_merge)
     
-    df_fraud_rate_seg.to_csv(r'fraud_rate_seg.csv')
-    df_fraud_rate_month.to_csv(r'fraud_rate_month.csv')
+    df_fraud_rate_seg.to_csv(r'data/fraud_rate_seg.csv')
+    df_fraud_rate_month.to_csv(r'data/fraud_rate_month.csv')
     print("\n{}".format(df_fraud_rate_seg))
     print("\n{}".format(df_fraud_rate_month))
 
