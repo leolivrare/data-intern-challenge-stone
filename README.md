@@ -11,7 +11,8 @@ Para executar o projeto utilizando o Dockerfile, basta ter o [Docker](https://ww
 <code>docker run challenge-app</code>
 
 ### Rodar localmente:
-Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizadas no projeto instaladas na sua máquina.  
+Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizadas no projeto instaladas na sua máquina e a versão adequada do python.
+#### Versão do python: 3.7.6
 #### Bibliotecas Utilizadas:
 ##### [Pandas 1.0.1](https://pandas.pydata.org/):  
 <code>pip install pandas</code>
@@ -25,6 +26,11 @@ Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizada
 <code>pip install plotly</code>
 ##### [Cufflinks 0.17.3](https://github.com/santosjorge/cufflinks):
 <code>pip install cufflinks</code>
+#### Com as bibliotecas instaladas, basta executar a main do projeto:  
+<code>python main.py</code>
+#### Para executar os scripts para gerar os gráficos, voce deve executar o jupyter com o comando:
+<code>jupyter notebook</code>
+
 
 ## Primeira Parte
 #### Código da Solução: [first_part.py](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
@@ -75,32 +81,32 @@ Como pode ser visto na tabela de resultados, o ranking de familia de cartões es
 
 ### Resultados
 #### Análise sobre o valor médio das transações:
-##### Solução na função [analyse_mean(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_mean(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
  Media das transações sem fraude: **R$24736.15**                                         
  Valor médio das fraudes: **R$26808.88**     
  As fraudes possuem, em média, valor **7.73%** mais alto do que as transações normais.
  
 #### Análise sobre o desvio padrão das transações:
-##### Solução na função [analyse_std(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_std(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 O desvio padrão das transações é **R$14378.64**  
 O desvio padrão das fraudes é **R$13574.31**  
 O desvio padrão das fraudes é menor que o das transações.  
 
 #### Análise sobre os valores máximos e mínimos:
-##### Solução na função [analyse_max_min(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_max_min(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 Valor minimo das transações não fraudulentas: **R$103**  
 Valor minimo das fraudes: **R$683**  
 Valor maximo das transações não fraudulentas: **R$49995**  
 Valor maximo das fraudes: **R$49155**  
 
 #### Análise sobre a mediana dos valores das transações:
-##### Solução na função [analyse_median(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_median(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 A mediana das transações não fraudulentas é: **R$24631.0**  
 A mediana das fraudes é **R$29746.0**  
 A mediana das fraudes é **17.20%** mais alto que as transações normais.  
 
 #### Taxa de fraudes por segmentos
-##### Solução na função [get_fraud_rate_segments(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [get_fraud_rate_segments(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 |Segment|Transactions|Frauds|Fraud Rate (%)     |
 |-------|------------|------|-------------------|
 |SEG11  |659.0       |15.0  |2.27 |
@@ -120,7 +126,7 @@ A mediana das fraudes é **17.20%** mais alto que as transações normais.
 |SEG25  |693.0       |4.0   |0.57 |
 
 #### Taxa de fraudes por mes
-##### Solução na função [get_fraud_rate_month(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [get_fraud_rate_month(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 |Month|Transactions|Frauds|Fraud Rate (%)     |
 |-----|------------|------|-------------------|
 |1    |828.0       |9.0   |1.08 |
@@ -152,4 +158,4 @@ Por outro lado, temos um resultado bastante interessante acerca da mediana dos v
 Pode-se notar no gráfico de taxa de fraude por seguimento, que existe uma grande diferença em relação à taxa de fraude entre os seguimentos. Dessa forma, analisando o gráfico, vemos que o seguimento 11 é o que possui a maior taxa de fraudes, logo, é o segumento mais vulnerável à fraude.
 Dessa mesma forma, vemos que os seguimentos 11, 23 e 21 são os com maior taxa de fraude, portanto, são os mais vulneráveis. Por outro lado, os seguimentos 19, 18, 25 e 13 são os com menor taxa de fraude, sendo assim os menos vulneráveis. A diferença entre o seguimento mais vulnerável e o menos vulnerável é tão grande, que o mais vulnerável (SEG 11) possui uma taxa de fraude 5 vezes maior que o menos vulnerável (SEG 19), ficando claro que existem seguimentos mais vulneráveis que outros, os quais precisam de uma maior estrutura anti-fraude para uma maior segurança.
 #### Análise da taxa de fraude por mes:
-Através do gráfico de taxa de fraudes por mes, pode-se notar uma variação menor na taxa de fraudes em relação à análise por seguimentos. Porém, mesmo com uma menor diferença na taxa de fraudes por mes, ainda temos diferenças que não podem passar em branco. Com isso, vemos que o mes de novembro se destaca quanto à sua taxa de fraudes, sendo a sua taxa mais de duas vezes maior que a do mes de maio. Isso pode ocorrer devido à alguma data comemorativa, como a BlackFriday, nesse mes. Porém, para podermos afirmar que esse mes sempre possui uma taxa maior que os outros, deve ser feita análises com dados de outros anos e ver se forma um padrão no valor das taxas de fraude. Portanto, apenas com esses dados, podemos ver que pode existir uma relação entre as datas e as transações fraudulentas, principalmente com as datas comemorativas. Porém, só podemos afirmar com certeza se fossem feitas análises em mais anos.
+Através do gráfico de taxa de fraudes por mes, pode-se notar uma variação menor na taxa de fraudes em relação à análise por seguimentos. Porém, mesmo com uma menor diferença na taxa de fraudes por mes, ainda temos diferenças que não podem passar em branco. Com isso, vemos que o mes de novembro se destaca quanto à sua taxa de fraudes. Nota-se que a taxa de fraude do mes de novembro é mais de duas vezes maior que a do mes de maio. Isso pode ocorrer devido a alguma data comemorativa, como a BlackFriday, nesse mes. Porém, para podermos afirmar que esse mes sempre possui uma taxa maior que os outros, deve ser feita análises com dados de outros anos e ver se forma um padrão no valor das taxas de fraude. Portanto, apenas com esses dados, podemos ver que pode existir uma relação entre as datas e as transações fraudulentas, principalmente com as datas comemorativas.
