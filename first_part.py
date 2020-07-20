@@ -29,7 +29,8 @@ def most_expensive_frauds(db):
     df_frauds = pd.DataFrame(db.select_table('frauds'))
 
     df_frauds_trans = pd.merge(df_trans, df_frauds, how = 'inner', on = 0)
-    df_frauds_trans.columns = ['Fraud ID', 'Card Number', 'Date', 'Value (R$)', 'Segment', 'Fraud Flag']
+    df_frauds_trans.columns = ['Fraud ID', 'Card Number', 'Date', 'Value', 'Segment', 'Fraud Flag']
 
     df_frauds_trans.sort_values(by = 'Value', ascending=False, inplace=True)
+    
     return df_frauds_trans.head()
