@@ -45,7 +45,7 @@ Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizada
 
 |Objetivo|Resultados|
 |------|--------|
-|Relacionar o limite de crédito do cartão à sua familia.|![Resultado ex2](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/imagens/max_min_table.png)|
+|Relacionar o limite de crédito do cartão à sua familia.|![Resultado ex2](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/imagens/card_family_analysis.png)|
 ### Visualização dos Resultados
 ![Img ex2](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/imagens/max_min.png)
 #### Comentários sobre os Resultados:
