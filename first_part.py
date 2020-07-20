@@ -1,20 +1,20 @@
 from connection import *
 import pandas as pd
 
-def customers_average_age(db):
+def get_customers_average_age(db):
     df_customers = pd.DataFrame(db.select_table("customers"))
     return df_customers[1].mean()
 
-def card_family_limit_analisys(db):
+def get_card_family_limit_analisys(db):
     df_cards = pd.DataFrame(db.select_table("cards"))
     df_cards.columns = ['Card Number', 'Card Family', 'Card Limit', 'Customer ID']
     group = df_cards[['Card Family', 'Card Limit']].groupby('Card Family')
 
-    group_description = group.describe()['Card Limit'][['mean', 'std', 'min', 'max']]
-    group_description.columns = ['Mean (R$)', 'Std (R$)', 'Minimum Value (R$)', 'Maximum Value (R$)']
-    return group_description
+    df_group_description = group.describe()['Card Limit'][['mean', 'std', 'min', 'max']]
+    df_group_description.columns = ['Mean (R$)', 'Std (R$)', 'Minimum Value (R$)', 'Maximum Value (R$)']
+    return df_group_description
 
-def highest_value_fraud_id(db):
+def get_highest_value_fraud_id(db):
     df_trans_value = pd.DataFrame(db.select_table("transactions"))[[0, 3]]
     df_frauds = pd.DataFrame(db.select_table("frauds"))
 
@@ -24,7 +24,7 @@ def highest_value_fraud_id(db):
     max_value = df_frauds_value['value'].max()
     return df_frauds_value[df_frauds_value['value'] == max_value]['id']
 
-def most_expensive_frauds(db):
+def get_most_expensive_frauds(db):
     df_trans = pd.DataFrame(db.select_table('transactions'))
     df_frauds = pd.DataFrame(db.select_table('frauds'))
 
