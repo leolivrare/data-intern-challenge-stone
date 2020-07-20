@@ -12,6 +12,8 @@ def get_card_family_limit_analisys(db):
 
     df_group_description = group.describe()['Card Limit'][['mean', 'std', 'min', 'max']]
     df_group_description.columns = ['Mean (R$)', 'Std (R$)', 'Minimum Value (R$)', 'Maximum Value (R$)']
+    df_group_description['Mean (R$)'] = df_group_description['Mean (R$)'].apply(lambda x : round(x, 2))
+    df_group_description['Std (R$)'] = df_group_description['Std (R$)'].apply(lambda x : round(x, 2))
     return df_group_description
 
 def get_highest_value_fraud_id(db):
