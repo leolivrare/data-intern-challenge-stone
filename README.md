@@ -75,32 +75,32 @@ Como pode ser visto na tabela de resultados, o ranking de familia de cartões es
 
 ### Resultados
 #### Análise sobre o valor médio das transações:
-##### Solução na função [analyse_mean(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_mean(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
  Media das transações sem fraude: **R$24736.15**                                         
  Valor médio das fraudes: **R$26808.88**     
  As fraudes possuem, em média, valor **7.73%** mais alto do que as transações normais.
  
 #### Análise sobre o desvio padrão das transações:
-##### Solução na função [analyse_std(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_std(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 O desvio padrão das transações é **R$14378.64**  
 O desvio padrão das fraudes é **R$13574.31**  
 O desvio padrão das fraudes é menor que o das transações.  
 
 #### Análise sobre os valores máximos e mínimos:
-##### Solução na função [analyse_max_min(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_max_min(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 Valor minimo das transações não fraudulentas: **R$103**  
 Valor minimo das fraudes: **R$683**  
 Valor maximo das transações não fraudulentas: **R$49995**  
 Valor maximo das fraudes: **R$49155**  
 
 #### Análise sobre a mediana dos valores das transações:
-##### Solução na função [analyse_median(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [analyse_median(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 A mediana das transações não fraudulentas é: **R$24631.0**  
 A mediana das fraudes é **R$29746.0**  
 A mediana das fraudes é **17.20%** mais alto que as transações normais.  
 
 #### Taxa de fraudes por segmentos
-##### Solução na função [get_fraud_rate_segments(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [get_fraud_rate_segments(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 |Segment|Transactions|Frauds|Fraud Rate (%)     |
 |-------|------------|------|-------------------|
 |SEG11  |659.0       |15.0  |2.27 |
@@ -120,7 +120,7 @@ A mediana das fraudes é **17.20%** mais alto que as transações normais.
 |SEG25  |693.0       |4.0   |0.57 |
 
 #### Taxa de fraudes por mes
-##### Solução na função [get_fraud_rate_month(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [get_fraud_rate_month(df_frauds_trans)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 |Month|Transactions|Frauds|Fraud Rate (%)     |
 |-----|------------|------|-------------------|
 |1    |828.0       |9.0   |1.08 |
