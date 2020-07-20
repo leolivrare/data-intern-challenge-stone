@@ -10,18 +10,18 @@ def main():
                     5432)
     #Primeira parte
     #Resolucao do primeiro exercicio
-    print("The average age of the customers is: {} \n".format(customers_average_age(db)))
+    print("A média de idade dos clientes é de: {} anos \n".format(int(customers_average_age(db))))
 
     #Resolucao do segundo exercicio
     df = card_family_limit_analisys(db)
     print(card_family_limit_analisys(db))
-    df.to_csv(r'data/card_family_limit_analisys.csv')
+    df.to_csv(r'card_family_limit_analisys.csv')
 
     #Resolucao do terceiro exercicio
     print("\n")
-    print("The highest value fraud id is:\n{}".format(highest_value_fraud_id(db)))
-    print("\nThe top five most value fraud is:\n{}".format(most_expensive_frauds(db)))
-
+    print("O ID da fraude de maior valor é:\n{}".format(highest_value_fraud_id(db)))
+    print("\nAs 5 fraudes de maior valor são:\n{}".format(most_expensive_frauds(db)))
+    df = most_expensive_frauds(db)
     #Segunda parte
     analyse_fraudulent_transactions(db)
     db.close()
