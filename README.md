@@ -100,7 +100,7 @@ A mediana das fraudes é **R$29746.0**
 A mediana das fraudes é **17.20%** mais alto que as transações normais.  
 
 #### Taxa de fraudes por segmentos
-##### Solução na função [get_fraud_rate_seg(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
+##### Solução na função [get_fraud_rate_segments(df_merge)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/second_part.py)
 |Segment|Transactions|Frauds|Fraud Rate (%)     |
 |-------|------------|------|-------------------|
 |SEG11  |659.0       |15.0  |2.27 |
