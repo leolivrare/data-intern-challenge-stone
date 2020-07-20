@@ -6,7 +6,7 @@
 Para executar o projeto utilizando o Dockerfile, basta ter o [Docker](https://www.docker.com/) instalado na sua máquina e executar os seguintes comandos:  
 
 #### Para construir a imagem do Docker:  
-<code>docker build -t challenge-app</code>  
+<code>docker build -t challenge-app .</code>  
 #### Para executar a imagem do Docker:  
 <code>docker run challenge-app</code>
 
