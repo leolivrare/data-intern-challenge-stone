@@ -35,13 +35,13 @@ Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizada
 ## Primeira Parte
 #### Código da Solução: [first_part.py](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
 ### Primeiro Desafio
-#### Solução está na função [customers_average_age(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
+#### Solução está na função [get_customers_average_age(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
 |Objetivo|Resultado|
 |------|--------|
 |Obter a idade média dos clientes no banco de dados.|A idade média obtida foi de 35 anos|
 ****
 ### Segundo Desafio
-#### Solução está na função [card_family_limit_analisys(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
+#### Solução está na função [get_card_family_limit_analisys(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
 
 |Objetivo|Resultados|
 |------|--------|
@@ -57,13 +57,13 @@ Como pode ser visto na tabela de resultados, o ranking de familia de cartões es
 |Pode-se notar que, com os dados utilizados, o menor limite de crédito para essa família de cartão é de R$2.000,00 e o maior limite de crédito é de R$50.000,00. Além disso, pode-se notar no gráfico que o maior limite de crédito da família Gold é inferior ao menor limite da família Platinum, ou seja, o intervalo de limite da família Gold não se sobrepõe ao da família Platinum. Portanto, se um cartão possuí um limite menor que R$50.000,00, o mesmo é da família Gold.|Nota-se que o menor limite de um cartão Platinum registrado no banco de dados é de R$51.000,00, que é logo acima do limite máximo dos Golds, ou seja, possivelmente quando um cartão Gold supera o limite de R$50.000,00 de crédito, o mesmo sobe no ranking para Platinum, caso o limite não extrapole o máximo dos Platinum. Por outro lado, o maior limite registrado no banco de dados para um cartão Platinum foi de R$200.000,00, o qual é superior ao menor limite de um cartão Premium, como se pode notar no gráfico. Portanto, existe uma sobreposição de valores no intervalo de limite de crédito da família Platinum com o intervalo da família Premium. Logo, quando um cartão possui de R$108.000,00 a R$200.000,00 de limite de crédito, não conseguimos afirmar com certeza a qual família o cartão pertence. Somente quando o limite supera o valor de R$200.000,00 que, nos nossos dados, o cartão pertence à família Premium.|O que podemos concluir dos cartões Premium é que o menor limite registrado no banco de dados é de R$108.000,00. Portanto, existe uma sobreposição dos intervalos de limite de crédito entre a família Platinum e a Premium. Porém, quando um cartão ultrapassa os R$200.000,00 de limite de crédito, podemos concluir que o mesmo possui uma grande chance de ser da família Premium.
 ****
 ### Terceiro Desafio
-#### Solução está nas funções [highest_value_fraud_id(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
+#### Solução está nas funções [get_highest_value_fraud_id(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
 
 |Objetivo|Resultado|
 |------|--------|
 |Encontrar qual o ID da transação fraudulenta de maior valor|A fraude de maior valor possui o ID: CTID20567160|
 #### As fraudes de maior valor:
-#### Solução na função: [most_expensive_frauds(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
+#### Solução na função: [get_most_expensive_frauds(db)](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
 |Fraud ID|Card Number|Date               |Value (R$)|Segment|Fraud Flag|
 |--------|-----------|-------------------|-----|-------|----------|
 |CTID20567160|3295-6390-4452-7199|2016-10-08         |49155|SEG16  |True      |
