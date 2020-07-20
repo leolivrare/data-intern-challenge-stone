@@ -11,7 +11,8 @@ Para executar o projeto utilizando o Dockerfile, basta ter o [Docker](https://ww
 <code>docker run challenge-app</code>
 
 ### Rodar localmente:
-Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizadas no projeto instaladas na sua máquina.  
+Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizadas no projeto instaladas na sua máquina e a versão adequada do python.
+#### Versão do python: 3.7.6
 #### Bibliotecas Utilizadas:
 ##### [Pandas 1.0.1](https://pandas.pydata.org/):  
 <code>pip install pandas</code>
@@ -25,6 +26,11 @@ Para executar o projeto localmente, voce deve ter todas as bibliotecas utilizada
 <code>pip install plotly</code>
 ##### [Cufflinks 0.17.3](https://github.com/santosjorge/cufflinks):
 <code>pip install cufflinks</code>
+#### Com as bibliotecas instaladas, basta executar a main do projeto:  
+<code>python main.py</code>
+#### Para executar os scripts para gerar os gráficos, voce deve executar o jupyter com o comando:
+<code>jupyter notebook</code>
+
 
 ## Primeira Parte
 #### Código da Solução: [first_part.py](https://github.com/leolivrare/data-intern-challenge-stone/blob/master/first_part.py)
